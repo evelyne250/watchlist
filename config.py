@@ -27,10 +27,10 @@ class Config:
     def init_app(app):
         pass
 
-
 class ProdConfig(Config):
-   
-    pass
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+
+
 
 class TestConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://wecode:ineza@localhost/watchlist_test'
