@@ -1,8 +1,12 @@
+import os
+
 class Config:
 
     MOVIE_API_BASE_URL ='https://api.themoviedb.org/3/movie/{}?api_key={}'
     MOVIE_API_KEY = os.environ.get('MOVIE_API_KEY')
     SECRET_KEY = os.environ.get('SECRET_KEY')
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://wecode:ineza@localhost/watchlist_test'
+
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     UPLOADED_PHOTOS_DEST ='app/static/photos'
@@ -13,7 +17,7 @@ class Config:
     MAIL_USE_TLS = True
     MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
-    SUBJECT_PREFIX = 'watchlist'
+    SUBJECT_PREFIX = 'Watchlist'
     SENDER_EMAIL = 'uevelyne44@gmail.com'
 
 # simple mde  configurations
@@ -24,8 +28,9 @@ class Config:
         pass
 
 
+
 class ProdConfig(Config):
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+   
     pass
 
 class TestConfig(Config):
